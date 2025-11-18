@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:imagechanger/home_page.dart';
+import 'package:imagechanger/pages/home_page.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+void main() async {
+  await dotenv.load();
   runApp(Myapp());
 }
 
