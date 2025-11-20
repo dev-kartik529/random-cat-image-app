@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
-class CatPage extends StatelessWidget {
+class CatDetails extends StatelessWidget {
   final String imageUrl;
   final Map<String, dynamic>? breedInfo;
 
-  const CatPage({super.key, required this.imageUrl, required this.breedInfo});
+  const CatDetails({
+    super.key,
+    required this.imageUrl,
+    required this.breedInfo,
+  });
 
   @override
   Widget build(BuildContext context) {

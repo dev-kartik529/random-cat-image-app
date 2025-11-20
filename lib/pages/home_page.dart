@@ -2,10 +2,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:imagechanger/routes/api_route.dart';
-import 'package:imagechanger/pages/cat_page.dart';
+import 'package:imagechanger/pages/cat_details.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final bool isDarkMode;
+  final ValueChanged<bool> isthemetogle;
+  const HomePage({
+    super.key,
+    required this.isDarkMode,
+    required this.isthemetogle,
+  });
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -54,6 +60,14 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         backgroundColor: Colors.black,
+        actions: [
+          IconButton(
+            onPressed: () => widget.isthemetogle(!widget.isDarkMode),
+            icon: widget.isDarkMode
+                ? Icon(Icons.dark_mode)
+                : Icon(Icons.light_mode),
+          ),
+        ],
       ),
 
       body: Center(
@@ -73,7 +87,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => CatPage(
+                            builder: (context) => CatDetails(
                               imageUrl: _imageUrl,
                               breedInfo: _breadsinfo,
                             ),
